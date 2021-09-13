@@ -1,7 +1,8 @@
 'use strict'
 
 const { nanoid } = require('nanoid')
-const { createRepo, locks: { memory } } = require('ipfs-repo')
+const { createRepo } = require('ipfs-repo')
+const { MemoryLock } = require('ipfs-repo/locks/memory')
 const codecs = require('./codecs')
 const createBackend = require('./create-backend')
 const { Key } = require('interface-datastore/key')
@@ -40,7 +41,7 @@ module.exports = async function createTempRepo (options = {}) {
   }
 
   return createRepo(path, (codeOrName) => codecs.getCodec(codeOrName), backend, {
-    repoLock: memory,
+    repoLock: MemoryLock,
     autoMigrate: options.autoMigrate,
     onMigrationProgress: options.onMigrationProgress
   })

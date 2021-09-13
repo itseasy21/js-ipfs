@@ -42,7 +42,7 @@
     "ipfs-core-utils": "^0.10.3",
     "ipfs-daemon": "^0.9.6",
     "ipfs-http-client": "^52.0.3",
-    "ipfs-repo": "^13.0.0",
+    "ipfs-repo": "^13.0.3",
     "ipfs-utils": "^8.1.4",
     "it-all": "^1.0.4",
     "it-concat": "^2.0.0",

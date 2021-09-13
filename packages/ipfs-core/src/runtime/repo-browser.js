@@ -3,6 +3,7 @@
 const { createRepo } = require('ipfs-repo')
 const { LevelDatastore } = require('datastore-level')
 const { BlockstoreDatastoreAdapter } = require('blockstore-datastore-adapter')
+const { MemoryLock } = require('ipfs-repo/locks/memory')
 
 /**
  * @typedef {import('ipfs-repo-migrations').ProgressCallback} MigrationProgressCallback
@@ -44,6 +45,7 @@ module.exports = (print, codecs, options) => {
     })
   }, {
     autoMigrate: options.autoMigrate,
-    onMigrationProgress: options.onMigrationProgress || print
+    onMigrationProgress: options.onMigrationProgress || print,
+    repoLock: MemoryLock
   })
 }

@@ -1,6 +1,6 @@
 'use strict'
 
-const { repoVersion } = require('ipfs-repo')
+const { repoVersion } = require('ipfs-repo/constants')
 const withTimeoutOption = require('ipfs-core-utils/src/with-timeout-option')
 
 /**

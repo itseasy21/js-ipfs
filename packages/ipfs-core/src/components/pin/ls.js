@@ -1,7 +1,7 @@
 /* eslint max-nested-callbacks: ["error", 8] */
 'use strict'
 
-const { PinTypes } = require('ipfs-repo')
+const { PinTypes } = require('ipfs-repo/pin-types')
 const { normaliseInput } = require('ipfs-core-utils/src/pins/normalise-input')
 const { resolvePath } = require('../../utils')
 const withTimeoutOption = require('ipfs-core-utils/src/with-timeout-option')

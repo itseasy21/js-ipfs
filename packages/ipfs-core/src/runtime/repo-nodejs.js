@@ -8,6 +8,7 @@ const { LevelDatastore } = require('datastore-level')
 const { BlockstoreDatastoreAdapter } = require('blockstore-datastore-adapter')
 const { ShardingDatastore } = require('datastore-core/sharding')
 const { NextToLast } = require('datastore-core/shard')
+const { FSLock } = require('ipfs-repo/locks/fs')
 
 /**
  * @typedef {import('ipfs-repo-migrations').ProgressCallback} MigrationProgressCallback
@@ -58,6 +59,7 @@ module.exports = (print, codecs, options = {}) => {
     pins: new LevelDatastore(`${repoPath}/pins`)
   }, {
     autoMigrate: options.autoMigrate != null ? options.autoMigrate : true,
-    onMigrationProgress: onMigrationProgress
+    onMigrationProgress: onMigrationProgress,
+    repoLock: FSLock
   })
 }

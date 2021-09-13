@@ -3,7 +3,7 @@
 const log = require('debug')('ipfs:components:peer:storage')
 const createRepo = require('../runtime/repo-nodejs')
 const getDefaultConfig = require('../runtime/config-nodejs')
-const { ERR_REPO_NOT_INITIALIZED } = require('ipfs-repo').errors
+const { ERR_REPO_NOT_INITIALIZED } = require('ipfs-repo/errors')
 const { fromString: uint8ArrayFromString } = require('uint8arrays/from-string')
 const { toString: uint8ArrayToString } = require('uint8arrays/to-string')
 const PeerId = require('peer-id')
