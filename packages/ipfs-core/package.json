@@ -53,7 +53,7 @@
     "test:bootstrapers": "IPFS_TEST=bootstrapers aegir test -t browser -f test/bootstrapers.js",
     "coverage": "nyc --reporter=text --reporter=lcov npm run test:node",
     "clean": "rimraf ./dist",
-    "dep-check": "aegir dep-check -i interface-ipfs-core -i ipfs-core-types -i abort-controller"
+    "dep-check": "aegir dep-check -i interface-ipfs-core -i ipfs-core-types -i interface-blockstore -i abort-controller"
   },
   "dependencies": {
     "@chainsafe/libp2p-noise": "^4.0.0",
@@ -136,7 +136,6 @@
     "@types/pako": "^1.0.2",
     "@types/rimraf": "^3.0.1",
     "aegir": "^35.0.3",
-    "constants-browserify": "^1.0.0",
     "delay": "^5.0.0",
     "go-ipfs": "0.9.1",
     "interface-blockstore-tests": "^2.0.0",
