@@ -2,7 +2,7 @@
 'use strict'
 
 const { expect } = require('aegir/utils/chai')
-const MemoryStore = require('interface-datastore').MemoryDatastore
+const { MemoryDatastore } = require('datastore-core/memory')
 const PeerId = require('peer-id')
 const Libp2p = require('libp2p')
 const EE = require('events')
@@ -75,7 +75,7 @@ describe('libp2p customization', function () {
         }
       }
     }
-    datastore = new MemoryStore()
+    datastore = new MemoryDatastore()
     peerId = await PeerId.create()
   })
 

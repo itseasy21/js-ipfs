@@ -1,6 +1,6 @@
 'use strict'
 
-const { TieredDatastore } = require('datastore-core')
+const { TieredDatastore } = require('datastore-core/tiered')
 const get = require('dlv')
 
 const PubsubDatastore = require('./pubsub-datastore')

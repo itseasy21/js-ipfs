@@ -3,7 +3,7 @@
 
 const isIpfs = require('is-ipfs')
 const { CID } = require('multiformats/cid')
-const Key = require('interface-datastore').Key
+const { Key } = require('interface-datastore/key')
 const errCode = require('err-code')
 const withTimeoutOption = require('ipfs-core-utils/src/with-timeout-option')
 const toCidAndPath = require('ipfs-core-utils/src/to-cid-and-path')

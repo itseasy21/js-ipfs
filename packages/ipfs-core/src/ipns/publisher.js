@@ -1,7 +1,8 @@
 'use strict'
 
 const PeerId = require('peer-id')
-const { Key, Errors } = require('interface-datastore')
+const { Key } = require('interface-datastore')
+const Errors = require('datastore-core/errors')
 const errcode = require('err-code')
 const debug = require('debug')
 const log = Object.assign(debug('ipfs:ipns:publisher'), {

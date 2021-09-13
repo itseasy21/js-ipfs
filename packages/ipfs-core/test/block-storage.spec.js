@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 'use strict'
 
-const { MemoryBlockstore } = require('interface-blockstore')
-const suite = require('interface-blockstore-tests')
+const { MemoryBlockstore } = require('blockstore-core/memory')
+const { interfaceBlockstoreTests } = require('interface-blockstore-tests')
 const BlockStorage = require('../src/block-storage')
 
 /**
@@ -23,7 +23,7 @@ class MockBitswap extends MemoryBlockstore {
 
 describe('block-storage', () => {
   describe('interface-blockstore (bitswap online)', () => {
-    suite({
+    interfaceBlockstoreTests({
       setup: () => {
         // bitswap forwards on to the blockstore so just
         // use the same instance to represent both
@@ -37,7 +37,7 @@ describe('block-storage', () => {
   })
 
   describe('interface-blockstore (bitswap offline)', () => {
-    suite({
+    interfaceBlockstoreTests({
       setup: () => {
         // bitswap forwards on to the blockstore so just
         // use the same instance to represent both

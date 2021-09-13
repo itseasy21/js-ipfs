@@ -1,11 +1,10 @@
 'use strict'
 
 const { nanoid } = require('nanoid')
-// @ts-expect-error locks is missing from types?
 const { createRepo, locks: { memory } } = require('ipfs-repo')
 const codecs = require('./codecs')
 const createBackend = require('./create-backend')
-const { Key } = require('interface-datastore')
+const { Key } = require('interface-datastore/key')
 
 /**
  * @param {object} options

@@ -1,7 +1,7 @@
 'use strict'
 
 const dagPb = require('@ipld/dag-pb')
-const { Errors } = require('interface-datastore')
+const Errors = require('datastore-core/errors')
 const ERR_NOT_FOUND = Errors.notFoundError().code
 const toCIDAndPath = require('ipfs-core-utils/src/to-cid-and-path')
 const { CID } = require('multiformats/cid')

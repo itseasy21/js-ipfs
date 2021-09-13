@@ -9,7 +9,7 @@ const log = Object.assign(debug('ipfs:ipns:resolver'), {
 })
 const { toString: uint8ArrayToString } = require('uint8arrays/to-string')
 
-const { Errors } = require('interface-datastore')
+const Errors = require('datastore-core/errors')
 const ERR_NOT_FOUND = Errors.notFoundError().code
 
 const defaultMaximumRecursiveDepth = 32

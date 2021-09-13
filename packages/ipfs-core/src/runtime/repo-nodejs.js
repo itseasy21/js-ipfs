@@ -3,10 +3,11 @@
 const os = require('os')
 const { createRepo } = require('ipfs-repo')
 const path = require('path')
-const DatastoreFS = require('datastore-fs')
-const DatastoreLevel = require('datastore-level')
-const BlockstoreDatastoreAdapter = require('blockstore-datastore-adapter')
-const { ShardingDatastore, shard: { NextToLast } } = require('datastore-core')
+const { FsDatastore } = require('datastore-fs')
+const { LevelDatastore } = require('datastore-level')
+const { BlockstoreDatastoreAdapter } = require('blockstore-datastore-adapter')
+const { ShardingDatastore } = require('datastore-core/sharding')
+const { NextToLast } = require('datastore-core/shard')
 
 /**
  * @typedef {import('ipfs-repo-migrations').ProgressCallback} MigrationProgressCallback
@@ -41,20 +42,20 @@ module.exports = (print, codecs, options = {}) => {
   }
 
   return createRepo(repoPath, (codeOrName) => codecs.getCodec(codeOrName), {
-    root: new DatastoreFS(repoPath, {
+    root: new FsDatastore(repoPath, {
       extension: ''
     }),
     blocks: new BlockstoreDatastoreAdapter(
       new ShardingDatastore(
-        new DatastoreFS(`${repoPath}/blocks`, {
+        new FsDatastore(`${repoPath}/blocks`, {
           extension: '.data'
         }),
         new NextToLast(2)
       )
     ),
-    datastore: new DatastoreLevel(`${repoPath}/datastore`),
-    keys: new DatastoreFS(`${repoPath}/keys`),
-    pins: new DatastoreLevel(`${repoPath}/pins`)
+    datastore: new LevelDatastore(`${repoPath}/datastore`),
+    keys: new FsDatastore(`${repoPath}/keys`),
+    pins: new LevelDatastore(`${repoPath}/pins`)
   }, {
     autoMigrate: options.autoMigrate != null ? options.autoMigrate : true,
     onMigrationProgress: onMigrationProgress

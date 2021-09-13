@@ -1,6 +1,6 @@
 'use strict'
 
-const { BlockstoreAdapter } = require('interface-blockstore')
+const { BaseBlockstore } = require('blockstore-core')
 const merge = require('it-merge')
 const pushable = require('it-pushable')
 const filter = require('it-filter')
@@ -22,7 +22,7 @@ const filter = require('it-filter')
  *
  * @implements {Blockstore}
  */
-class BlockStorage extends BlockstoreAdapter {
+class BlockStorage extends BaseBlockstore {
   /**
    * Create a new BlockStorage
    *
