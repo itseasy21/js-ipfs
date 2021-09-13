@@ -1,6 +1,6 @@
 'use strict'
 
-const { BlockstoreAdapter } = require('interface-blockstore')
+const { BaseBlockstore } = require('blockstore-core/base')
 const raw = require('multiformats/codecs/raw')
 const dagPb = require('@ipld/dag-pb')
 const dagCbor = require('@ipld/dag-cbor')
@@ -23,7 +23,7 @@ const hashes = {
   [sha256.code]: sha256.name
 }
 
-class IPFSBlockstore extends BlockstoreAdapter {
+class IPFSBlockstore extends BaseBlockstore {
   /**
    * @param {import('ipfs-core-types').IPFS} ipfs
    */
